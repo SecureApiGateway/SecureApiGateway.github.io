@@ -1,2 +1,2 @@
-# securebanking-github-pages
-Secure Banking Accelerator Toolkit github.io
+# securebanking.github.io
+Secure Banking Accelerator Toolkit github.io pages
