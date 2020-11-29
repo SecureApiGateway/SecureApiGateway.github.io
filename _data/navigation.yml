@@ -1,0 +1,8 @@
+title: Bootstrap Swagger Embeded Site 
+brand: //getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg
+
+header:
+  - title: Home
+    url : /
+    target: _self
+

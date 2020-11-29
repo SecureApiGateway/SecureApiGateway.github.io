@@ -1,71 +1,100 @@
-# Where things are
-source              : .
-destination         : ./_site
-collections_dir     : .
-plugins_dir         : _plugins # takes an array of strings and loads plugins in that order
-layouts_dir         : _layouts
-data_dir            : _data
-includes_dir        : _includes
-sass:
-  sass_dir: _sass
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+port: 4001
+title: Secure Banking Accelerator Toolkit # The main title
+email: ""
+description: >- # this means to ignore newlines until "baseurl:"
+  A Forgerock Open Source Project
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. https://username.guthub.io
+author: Forgerock
+
+github:
+  repository_url: https://github.com/SecureBankingAcceleratorToolkit
+
+repository: "SecureBankingAcceleratorToolkit/SecureBankingAcceleratorToolkit.github.io"
+
+permalink: /posts/:title/
+
+# Build settings
+# plugins:
+  #- jekyll-redirect-from
+  #- jekyll-sitemap # to silently generate a sitemaps.org compliant sitemap
+  #- jekyll-seo-tag # add metadata tags for search engines and social networks to better index
+  #- jekyll-target-blank # Automatically adds a target="_blank" rel="noopener noreferrer" attribute to all external links
+  #- jekyll-archives # Automatically generate post archives by dates, tags, and categories.
+
+# plugin configurations
+# https://github.com/jekyll/jekyll-sitemap
+# https://github.com/jekyll/jekyll-seo-tag
+# https://github.com/keithmifsud/jekyll-target-blank
+# https://github.com/jekyll/jekyll-archives
+
+whitelist:
+  - jekyll-redirect-from
+  - jekyll-target-blank
+  - jekyll-archives
+
+jekyll-archives:
+  enabled: [categories, tags]
+  layout: tag
+  permalinks:
+    tag: '/tags/:name/'
+    category: '/categories/:name/'
+
 collections:
-  posts:
-    output          : true
+  apis:
+    output: true
+    sort_by: version
 
-# Handling Reading
-safe                : false
-include             : [".htaccess"]
-exclude             : ["securebanking.github.io.iml", "Gemfile", "Gemfile.lock", "node_modules", "vendor/bundle/", "vendor/cache/", "vendor/gems/", "vendor/ruby/"]
-keep_files          : [".git", ".svn"]
-encoding            : "utf-8"
-markdown_ext        : "markdown,mkdown,mkdn,mkd,md"
-strict_front_matter : false
 
-# Filtering Content
-show_drafts         : null
-limit_posts         : 0
-future              : false
-unpublished         : false
 
-# Plugins
-whitelist           : []
-plugins             : []
+# A list of the pages to display in the navigation bar
+header_pages:
+  - index.md
+  - about.md
+  - specs.md
 
-# Conversion
-markdown            : kramdown
-highlighter         : rouge
-lsi                 : false
-excerpt_separator   : "\n\n"
-incremental         : false
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - update_boostrap.sh
+  - old
+  - .idea
+  - securebankingacceleratortoolkit.github.io.iml
+  - README.md
+  - LICENSE
 
-# Serving
-detach              : false
-port                : 4000
-host                : 127.0.0.1
-baseurl             : "" # does not include hostname
-show_dir_listing    : false
-
-# Outputting
-permalink           : date
-paginate_path       : /page:num
-timezone            : null
-
-quiet               : false
-verbose             : false
-defaults            : []
-
-liquid:
-  error_mode        : warn
-  strict_filters    : false
-  strict_variables  : false
-
-# Markdown Processors
-kramdown:
-  auto_ids          : true
-  entity_output     : as_char
-  toc_levels        : [1, 2, 3, 4, 5, 6]
-  smart_quotes      : lsquo,rsquo,ldquo,rdquo
-  input             : GFM
-  hard_wrap         : false
-  footnote_nr       : 1
-  show_warnings     : false
+  - scope:
+      path: tags
+    values:
+      breadcrumb:
+        - label: Home
+          url: /
+        - label: Tags
+          url: /tabs/tags/
+  - scope:
+      path: categories
+    values:
+      breadcrumb:
+        - label: Home
+          url: /
+        - label: Categories
+          url: /tabs/categories/
