@@ -1,55 +1,18 @@
-<!doctype html>
-<html class="no-js" lang="" style="font-size:14px">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
-
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/community-styles.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-<!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please
-    <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
-<header>
-    <!--<div class="container">-->
-    <!--<nav class="navbar navbar-inverse">-->
-    <!--<a class="navbar-brand" href="#">-->
-    <!--<img id="nav-logo" alt="Brand" src="img/logos/FR_logo_horiz_FC_rev.png">-->
-    <!--</a>-->
-    <!--</nav>-->
-    <!--</div>-->
-    <div class="row ">
-        <div class="col-12 ">
-            <h1 class="header-title text-center fr-background-image">Forgerock Secure Banking Accelerator Toolkit</h1>
-            <h3 class="card-title text-center">{{ page.subtitle }}</h3>
+<!DOCTYPE html>
+<html lang="en">
+    {%- include head.html -%}
+    <body>
+        {%- include navbar.html -%}
+        <div class="container">
+            {{ content }}
         </div>
-    </div>
-</header>
-<div>
-    <div class="container">
-        {% include navigation.html %}
-        {{ content }}
-    </div>
-    <div>
-        {% include footer.html %}
-    </div>
-</div>
-
-
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
-</body>
+        <div class="bg-dark text-white">
+            <div class="container">
+                {%- include footer.html -%}
+            </div>
+        </div>
+        <script src="{{ '/assets/javascript/bootstrap/jquery.min.js' | relative_url }}"></script>
+        <script src="{{ '/assets/javascript/bootstrap/bootstrap.bundle.min.js' | relative_url }}"></script>
+        <script src="{{ '/assets/javascript/custom.js' | relative_url }}"></script>
+    </body>
 </html>

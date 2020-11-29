@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+        {%- assign page_paths = site.header_pages -%}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto">
+                {%- for path in page_paths -%}
+                    {%- assign my_page = site.pages | where: "path", path | first -%}
+                    {%- if my_page.title -%}
+                        <li{% if my_page.url == page.url %} class="nav-item active"{% else %} class="nav-item"{% endif %}>
+                            <a class="nav-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                    {%- endif -%}
+                {% endfor -%}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Specs</a>
+                    <div class="dropdown-menu">
+                        {% for api in site.apis %}
+                            <a class="dropdown-item" href="{{api.url}}">{{ api.title }}</a>
+                        {% endfor %}
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/">Home</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 px-2" data-children-count="1">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search">
+              <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <span class="badge badge-warning float-lg-right">
+                <i class="fab fa-github-alt text-black-50"></i>
+                <a class="text-black-50" href="{{ site.github.repository_url }}">Fork me on Github</a>
+            </span>
+
+        </div>
+    </div>
+</nav>
